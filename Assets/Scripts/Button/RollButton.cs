@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RollButton : MonoBehaviour
 {
+    [SerializeField] private Roullette[] roullettes;
     [SerializeField] private Sprite upSprite;
     [SerializeField] private Sprite downSprite;
     [SerializeField] private Sprite upInactiveSprite;
@@ -18,6 +19,10 @@ public class RollButton : MonoBehaviour
 
     void OnMouseDown() {
         SetIsUp(false);
+        foreach (Roullette roullette in roullettes)
+        {
+            roullette.Turn();
+        }
     }
 
     void OnMouseUp() {
